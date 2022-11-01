@@ -33,7 +33,7 @@
   - Mobile App
   
 # Admin Side Requirement
-- WebStrom 2022.2.3
+- WebStorm 2022.2.3
 - npm
 - ReactJS 18.2.0
 - Axios 1.1.3
