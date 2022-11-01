@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_splash_background"
+    tools:context=".activities.VerifyOTPActivity">
+
+    <TextView
+        android:id="@+id/verify_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/google_sans_medium"
+        android:paddingStart="30dp"
+        android:text="@string/verify"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="70sp" />
+
+    <TextView
+        android:id="@+id/verify_text_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/verify_text"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/google_sans_medium"
+        android:paddingStart="35dp"
+        android:text="@string/your_otp_here"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/pin_view"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/verify_text_2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:elevation="10dp"
+        android:inputType="number"
+        android:itemBackground="@drawable/otp_bg"
+        android:textColor="@color/primary_text_color"
+        android:textSize="20sp"
+        app:itemHeight="60dp"
+        app:itemRadius="10dp"
+        app:itemSpacing="15dp"
+        app:itemWidth="60dp"
+        app:lineColor="@color/primary_text_color"
+        app:viewType="rectangle" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pin_view"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/resend_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/google_sans_regular"
+            android:text="@string/didn_t_recieve_code"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/resend_code_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/resend_text"
+            android:fontFamily="@font/google_sans_regular"
+            android:text="@string/resent_code"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/shape_button_rounded"
+        android:fontFamily="@font/google_sans_medium"
+        android:text="@string/verify_and_create_account"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>
