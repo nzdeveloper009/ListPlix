@@ -9,6 +9,7 @@ public class LocalStorage {
     Context context;
     String token;
     String email;
+    Boolean isLoggedIn;
 
     public LocalStorage(Context context) {
         this.context = context;
@@ -36,5 +37,18 @@ public class LocalStorage {
         editor.putString("EMAIL",token);
         editor.commit();
         this.email = email;
+    }
+
+
+
+    public Boolean getLoggedIn() {
+        isLoggedIn = sharedPreferences.getBoolean("LOGGEDIN",false);
+        return isLoggedIn;
+    }
+
+    public void setLoggedIn(Boolean loggedIn) {
+        editor.putBoolean("LOGGEDIN",loggedIn);
+        editor.commit();
+        isLoggedIn = loggedIn;
     }
 }

@@ -1,4 +1,4 @@
-package com.softwarealliance.listplix.responseapi
+package com.softwarealliance.listplix.model.responseapi
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

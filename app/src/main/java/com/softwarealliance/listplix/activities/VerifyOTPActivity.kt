@@ -13,8 +13,8 @@ import androidx.appcompat.widget.AppCompatButton
 import com.chaos.view.PinView
 import com.softwarealliance.listplix.R
 import com.softwarealliance.listplix.`interface`.APIListPlixJson
-import com.softwarealliance.listplix.model.RequestOtpModel
-import com.softwarealliance.listplix.responseapi.ResponseOtp
+import com.softwarealliance.listplix.model.requests.RequestOtpModel
+import com.softwarealliance.listplix.model.responseapi.ResponseOtp
 import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.LocalStorage
 import org.json.JSONObject
@@ -138,6 +138,7 @@ class VerifyOTPActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         localStorage.token = token
                         localStorage.email = email
+                        localStorage.loggedIn = true
                         Toast.makeText(
                             this@VerifyOTPActivity,
                             "Verification Successful",

@@ -29,9 +29,6 @@ class IntroActivity : AppCompatActivity() {
 
         initView()
         listeners()
-
-
-
     }
 
     private fun listeners() {
@@ -52,7 +49,6 @@ class IntroActivity : AppCompatActivity() {
         btn_sign_in_intro = findViewById(R.id.btn_sign_in_intro)
         btn_sign_up_intro = findViewById(R.id.btn_sign_up_intro)
         tv_app_name_intro = findViewById(R.id.tv_app_name_intro)
-
 
         // This is used to get the file from the assets folder and set it to the title textView.
         val typeface: Typeface =

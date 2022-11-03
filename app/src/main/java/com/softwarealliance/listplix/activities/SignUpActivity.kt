@@ -21,8 +21,8 @@ import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
 import com.softwarealliance.listplix.`interface`.APIListPlixJson
-import com.softwarealliance.listplix.model.RequestSignUpModel
-import com.softwarealliance.listplix.responseapi.ResponseSignUp
+import com.softwarealliance.listplix.model.requests.RequestSignUpModel
+import com.softwarealliance.listplix.model.responseapi.ResponseSignUp
 import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.Constants.PASSWORD_PATTERN
 import com.softwarealliance.listplix.utils.Constants.isValidPattern

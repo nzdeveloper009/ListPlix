@@ -8,8 +8,11 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.softwarealliance.listplix.R
+import com.softwarealliance.listplix.utils.LocalStorage
 
 class SplashActivity : AppCompatActivity() {
+    private lateinit var localStorage: LocalStorage
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -38,9 +41,19 @@ class SplashActivity : AppCompatActivity() {
 
         textView.paint.setShader(textShader)*/
 
+        localStorage = LocalStorage(this@SplashActivity)
+
+
         // Adding the handler to after the a task after some delay.
         Handler().postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
+            if(localStorage.loggedIn)
+            {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }  else{
+                startActivity(Intent(this, IntroActivity::class.java))
+                finish()
+            }
         },2000)
 
     }

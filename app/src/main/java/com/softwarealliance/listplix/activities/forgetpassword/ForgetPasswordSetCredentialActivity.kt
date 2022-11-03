@@ -14,8 +14,8 @@ import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
 import com.softwarealliance.listplix.`interface`.APIListPlixJson
 import com.softwarealliance.listplix.activities.BaseActivity
-import com.softwarealliance.listplix.model.RequestSignInModel
-import com.softwarealliance.listplix.responseapi.ResponseUpdatePassword
+import com.softwarealliance.listplix.model.requests.RequestSignInModel
+import com.softwarealliance.listplix.model.responseapi.ResponseUpdatePassword
 import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.Constants
 import retrofit2.Call

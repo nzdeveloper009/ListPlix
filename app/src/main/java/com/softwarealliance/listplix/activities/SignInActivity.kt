@@ -20,8 +20,8 @@ import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
 import com.softwarealliance.listplix.`interface`.APIListPlixJson
 import com.softwarealliance.listplix.activities.forgetpassword.ForgetPasswordActivity01
-import com.softwarealliance.listplix.model.RequestSignInModel
-import com.softwarealliance.listplix.responseapi.ResponseSignIn
+import com.softwarealliance.listplix.model.requests.RequestSignInModel
+import com.softwarealliance.listplix.model.responseapi.ResponseSignIn
 import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.LocalStorage
 import org.json.JSONObject
@@ -106,6 +106,8 @@ class SignInActivity : BaseActivity() {
                         201, 200 -> {
                             val token = response.body()!!.token
                             localStorage.token = token
+                            localStorage.email = str_email
+                            localStorage.loggedIn = true
                             Log.d("Tokeeeeeen", "onResponse: Token-> $token")
                             userLoginSuccess(token)
                         }

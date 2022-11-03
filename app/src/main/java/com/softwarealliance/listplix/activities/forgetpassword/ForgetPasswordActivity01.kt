@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
 import com.softwarealliance.listplix.`interface`.APIListPlixJson
 import com.softwarealliance.listplix.activities.BaseActivity
-import com.softwarealliance.listplix.responseapi.ResponseForgetPassword
+import com.softwarealliance.listplix.model.responseapi.ResponseForgetPassword
 import com.softwarealliance.listplix.service.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
