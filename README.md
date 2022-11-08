@@ -8,6 +8,7 @@
 - PHP Laravel API (No Firebase Costs)
 
 # Features of ListPlix Android
+- Support Android 12+
 - Splash Screen
 - Login
   - Using Retrofit to Integrate RestApi for login User
@@ -15,7 +16,8 @@
   - Using Retrofit to Integrate RestApi for Register User
 - Forget/Update Password
   - Using Retrofit to Integrate RestApi for Forget and update password of User
-- Support Android 12+
+- Show
+    - Profile, Project list and Task List using Retrofit
   
 # Server Side Requirments
 - PHPstorm 2022.2.3
