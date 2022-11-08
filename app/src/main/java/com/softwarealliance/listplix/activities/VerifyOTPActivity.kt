@@ -12,10 +12,9 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.chaos.view.PinView
 import com.softwarealliance.listplix.R
-import com.softwarealliance.listplix.`interface`.APIListPlixJson
+import com.softwarealliance.listplix.api.ApiClient
 import com.softwarealliance.listplix.model.requests.RequestOtpModel
 import com.softwarealliance.listplix.model.responseapi.ResponseOtp
-import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.LocalStorage
 import org.json.JSONObject
 import retrofit2.Call
@@ -85,8 +84,8 @@ class VerifyOTPActivity : BaseActivity() {
 
         resendCode.setOnClickListener {
             showProgressDialog(resources.getString(R.string.please_wait))
-            val retrofit = ServiceBuilder.buildService(APIListPlixJson::class.java)
-            retrofit.requestResendOtp(email)
+            val apiClient = ApiClient()
+            apiClient.getApiService(this).requestResendOtp(email)
                 .enqueue(
                     object:Callback<Int>{
                         override fun onResponse(call: Call<Int>, response: Response<Int>) {
@@ -127,9 +126,9 @@ class VerifyOTPActivity : BaseActivity() {
     }
 
     fun verifyOtp(toString: String) {
-        val retrofit = ServiceBuilder.buildService(APIListPlixJson::class.java)
+        val apiClient = ApiClient()
         val obj = RequestOtpModel(email, vcode)
-        retrofit.requestVerifyOtp(obj).enqueue(
+        apiClient.getApiService(this).requestVerifyOtp(obj).enqueue(
             object : Callback<ResponseOtp> {
                 override fun onResponse(
                     call: Call<ResponseOtp>,

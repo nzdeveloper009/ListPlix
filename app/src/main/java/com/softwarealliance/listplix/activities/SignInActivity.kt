@@ -18,11 +18,12 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
-import com.softwarealliance.listplix.`interface`.APIListPlixJson
 import com.softwarealliance.listplix.activities.forgetpassword.ForgetPasswordActivity01
+import com.softwarealliance.listplix.api.ApiClient
 import com.softwarealliance.listplix.model.requests.RequestSignInModel
 import com.softwarealliance.listplix.model.responseapi.ResponseSignIn
-import com.softwarealliance.listplix.service.ServiceBuilder
+import com.softwarealliance.listplix.model.responseapi.User
+import com.softwarealliance.listplix.utils.Constants.loadUserData
 import com.softwarealliance.listplix.utils.LocalStorage
 import org.json.JSONObject
 import retrofit2.Call
@@ -94,9 +95,10 @@ class SignInActivity : BaseActivity() {
         showProgressDialog(resources.getString(R.string.please_wait))
         val str_email: String = et_email.text.toString().trim { it <= ' ' }
         val str_password: String = et_password.text.toString().trim { it <= ' ' }
-        val retrofit = ServiceBuilder.buildService(APIListPlixJson::class.java)
+
+        val apiClient = ApiClient()
         val obj = RequestSignInModel(str_email, str_password)
-        retrofit.requestLogin(obj).enqueue(
+        apiClient.getApiService(this).requestLogin(obj).enqueue(
             object : Callback<ResponseSignIn> {
                 override fun onResponse(
                     call: Call<ResponseSignIn>,
@@ -109,7 +111,7 @@ class SignInActivity : BaseActivity() {
                             localStorage.email = str_email
                             localStorage.loggedIn = true
                             Log.d("Tokeeeeeen", "onResponse: Token-> $token")
-                            userLoginSuccess(token)
+                            loadUserData(this@SignInActivity)
                         }
                         422 -> {
                             hideProgressDialog()
@@ -158,11 +160,10 @@ class SignInActivity : BaseActivity() {
 
             }
         )
-
     }
 
 
-    fun userLoginSuccess(token: String) {
+    fun signInSuccess(user:User) {
 
         // Hide the progress dialog
         hideProgressDialog()
@@ -177,6 +178,8 @@ class SignInActivity : BaseActivity() {
         this.finish()
 
     }
+
+
 
 
     fun alertFail(s: String) {

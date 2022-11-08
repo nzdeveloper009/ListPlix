@@ -1,16 +1,18 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
     namespace 'com.softwarealliance.listplix'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.softwarealliance.listplix"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -30,11 +32,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20"
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -53,6 +61,19 @@ dependencies {
     // https://github.com/square/retrofit/tree/master/retrofit-converters/gson
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    //OkHttp Libraries
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'
+
     // pin view
     implementation 'io.github.chaosleung:pinview:1.4.4'
+
+    // circular image view dependency
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Image loading library
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+
 }

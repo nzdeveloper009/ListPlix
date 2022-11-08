@@ -20,10 +20,9 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
-import com.softwarealliance.listplix.`interface`.APIListPlixJson
+import com.softwarealliance.listplix.api.ApiClient
 import com.softwarealliance.listplix.model.requests.RequestSignUpModel
 import com.softwarealliance.listplix.model.responseapi.ResponseSignUp
-import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.Constants.PASSWORD_PATTERN
 import com.softwarealliance.listplix.utils.Constants.isValidPattern
 import org.json.JSONObject
@@ -171,9 +170,9 @@ class SignUpActivity : BaseActivity() {
         val str_email: String = et_email.text.toString().trim { it <= ' ' }
         val str_password: String = et_password.text.toString().trim { it <= ' ' }
 
-        val retrofit = ServiceBuilder.buildService(APIListPlixJson::class.java)
+        val apiClient = ApiClient()
         val obj = RequestSignUpModel(str_name,str_email,str_password,str_role,str_department)
-        retrofit.requestRegister(obj).enqueue(
+        apiClient.getApiService(this).requestRegister(obj).enqueue(
             object : Callback<ResponseSignUp>{
                 override fun onResponse(
                     call: Call<ResponseSignUp>,

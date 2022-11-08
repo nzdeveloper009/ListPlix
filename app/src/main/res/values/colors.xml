@@ -21,4 +21,8 @@
 
     <color name="task_list_action_color">#F7F6FA</color>
     <color name="task_list_title_view_bg_color">#F8F8F8</color>
+
+    <color name="status_done">#64a338</color>
+    <color name="status_in_progress">#3865a3</color>
+    <color name="status_open">#ffcc00</color>
 </resources>

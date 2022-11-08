@@ -10,6 +10,8 @@ public class LocalStorage {
     String token;
     String email;
     Boolean isLoggedIn;
+    int userID;
+    int projectID;
 
     public LocalStorage(Context context) {
         this.context = context;
@@ -26,6 +28,11 @@ public class LocalStorage {
         editor.putString("TOKEN",token);
         editor.commit();
         this.token = token;
+    }
+
+    public String fetchAuthToken() {
+        token = sharedPreferences.getString("TOKEN","");
+        return token;
     }
 
     public String getEmail() {
@@ -45,6 +52,30 @@ public class LocalStorage {
         isLoggedIn = sharedPreferences.getBoolean("LOGGEDIN",false);
         return isLoggedIn;
     }
+
+    public int getUserID() {
+        userID = sharedPreferences.getInt("USERID",0);
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        editor.putInt("USERID",userID);
+        editor.commit();
+        this.userID = userID;
+    }
+
+    public int getProjectID() {
+        projectID = sharedPreferences.getInt("PROJECTID",0);
+        return projectID;
+    }
+
+    public void setProjectID(int projectID) {
+        editor.putInt("PROJECTID",projectID);
+        editor.commit();
+        this.projectID = projectID;
+    }
+
+
 
     public void setLoggedIn(Boolean loggedIn) {
         editor.putBoolean("LOGGEDIN",loggedIn);

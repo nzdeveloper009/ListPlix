@@ -12,11 +12,10 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
-import com.softwarealliance.listplix.`interface`.APIListPlixJson
 import com.softwarealliance.listplix.activities.BaseActivity
+import com.softwarealliance.listplix.api.ApiClient
 import com.softwarealliance.listplix.model.requests.RequestSignInModel
 import com.softwarealliance.listplix.model.responseapi.ResponseUpdatePassword
-import com.softwarealliance.listplix.service.ServiceBuilder
 import com.softwarealliance.listplix.utils.Constants
 import retrofit2.Call
 import retrofit2.Callback
@@ -82,9 +81,9 @@ class ForgetPasswordSetCredentialActivity : BaseActivity() {
         showProgressDialog(resources.getString(R.string.please_wait))
         // Here we get the text from editText and trim the space
         val str_password: String = et_password.text.toString().trim { it <= ' ' }
-        val retrofit = ServiceBuilder.buildService(APIListPlixJson::class.java)
+        val apiClient = ApiClient()
         val obj = RequestSignInModel(email,str_password)
-        retrofit.requestUpdatePassword(obj).enqueue(
+        apiClient.getApiService(this).requestUpdatePassword(obj).enqueue(
             object:Callback<ResponseUpdatePassword>{
                 override fun onResponse(call: Call<ResponseUpdatePassword>, response: Response<ResponseUpdatePassword>) {
                     if(response.isSuccessful)

@@ -10,10 +10,9 @@ import androidx.appcompat.widget.Toolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.softwarealliance.listplix.R
-import com.softwarealliance.listplix.`interface`.APIListPlixJson
 import com.softwarealliance.listplix.activities.BaseActivity
+import com.softwarealliance.listplix.api.ApiClient
 import com.softwarealliance.listplix.model.responseapi.ResponseForgetPassword
-import com.softwarealliance.listplix.service.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,8 +65,8 @@ class ForgetPasswordActivity01 : BaseActivity() {
             } else {
                 til_email.setErrorEnabled(false)
                 showProgressDialog(resources.getString(R.string.please_wait))
-                val retrofit = ServiceBuilder.buildService(APIListPlixJson::class.java)
-                retrofit.requestResetPassword(et_email.text.toString()).enqueue(
+                val apiClient = ApiClient()
+                apiClient.getApiService(this).requestResetPassword(et_email.text.toString()).enqueue(
                     object : Callback<ResponseForgetPassword> {
                         override fun onResponse(
                             call: Call<ResponseForgetPassword>,

@@ -25,6 +25,7 @@
     <string name="otp">Enter one time password which sent on your email</string>
     <string name="new_credentials">New\nCredentials</string>
     <string name="new_credentials_slogan">Your identity has been verified!\nSet your new password</string>
+    <string name="project_not_found">\"Project not found.\"</string>
 
     <string name="didn_t_recieve_code">Didn\'t Receive Code?</string>
     <string name="verify">Verify</string>
